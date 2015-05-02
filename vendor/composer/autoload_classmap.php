@@ -6,10 +6,9 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'CreateCitasTable' => $baseDir . '/database/migrations/2015_05_02_080416_create_citas_table.php',
+    'CreateContactosTable' => $baseDir . '/database/migrations/2015_05_02_080441_create_contactos_table.php',
     'CreatePoblacionsAndVotantsTables' => $baseDir . '/database/migrations/2015_04_07_174303_create_poblacions_and_votants_tables.php',
-    'CreatePoblacionsTable' => $baseDir . '/database/migrations/2015_04_07_181651_create_poblacions_table.php',
-    'CreatePoblaciosTable' => $baseDir . '/database/migrations/2015_04_07_182303_create_poblacios_table.php',
-    'CreateVotantsTable' => $baseDir . '/database/migrations/2015_04_07_181703_create_votants_table.php',
     'DatabaseSeeder' => $baseDir . '/database/seeds/DatabaseSeeder.php',
     'File_Iterator' => $vendorDir . '/phpunit/php-file-iterator/File/Iterator.php',
     'File_Iterator_Facade' => $vendorDir . '/phpunit/php-file-iterator/File/Iterator/Facade.php',
@@ -388,7 +387,7 @@ return array(
     'PHP_Token_WHITESPACE' => $vendorDir . '/phpunit/php-token-stream/src/Token.php',
     'PHP_Token_XOR_EQUAL' => $vendorDir . '/phpunit/php-token-stream/src/Token.php',
     'PHP_Token_YIELD' => $vendorDir . '/phpunit/php-token-stream/src/Token.php',
-    'PoblacionsTableSeeder' => $baseDir . '/database/seeds/PoblacionsTableSeeder.php',
+    'PoblacionsTableSeeder' => $baseDir . '/database/seeds/PoblacionsTableSeeder - copia.php',
     'SebastianBergmann\\Comparator\\ArrayComparator' => $vendorDir . '/sebastian/comparator/src/ArrayComparator.php',
     'SebastianBergmann\\Comparator\\Comparator' => $vendorDir . '/sebastian/comparator/src/Comparator.php',
     'SebastianBergmann\\Comparator\\ComparisonFailure' => $vendorDir . '/sebastian/comparator/src/ComparisonFailure.php',
@@ -427,5 +426,5 @@ return array(
     'SessionHandlerInterface' => $vendorDir . '/symfony/http-foundation/Symfony/Component/HttpFoundation/Resources/stubs/SessionHandlerInterface.php',
     'TestCase' => $baseDir . '/tests/TestCase.php',
     'Text_Template' => $vendorDir . '/phpunit/php-text-template/Text/Template.php',
-    'VotantsTableSeeder' => $baseDir . '/database/seeds/VotantsTableSeeder.php',
+    'VotantsTableSeeder' => $baseDir . '/database/seeds/VotantsTableSeeder - copia.php',
 );
