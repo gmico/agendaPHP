@@ -39,16 +39,24 @@
 	</head>
 	<body>
 		
+<!-- /resources/views/tasks/partials/_form.blade.php -->
+<div class="form-group">
+    {!! Form::label('nom', 'Nom:') !!}
+    {!! Form::text('nom') !!}
+</div>
+
+<div class="form-group">
+    {!! Form::label('mail', 'Mail:') !!}
+    {!! Form::text('mail') !!}
+</div>
  
-<!-- /resources/views/projects/edit.blade.php -->
-@extends('app')
- 
-@section('content')
-    <h2>Edit Poblacion</h2>
- 
-    {!! Form::model($poblacion, ['method' => 'PATCH', 'route' => ['poblacions.update', $poblacion->slug]]) !!}
-        @include('poblacions/partials/_form', ['submit_text' => 'Edit Project'])
-    {!! Form::close() !!}
-@endsection
+ <div class="form-group">
+    {!! Form::label('telefon', 'Telefon:') !!}
+    {!! Form::textarea('telefon') !!}
+</div> 
+
+ <div class="form-group">
+    {!! Form::submit($submit_text) !!}
+</div>
 	</body>
 </html>

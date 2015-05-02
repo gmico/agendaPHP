@@ -38,30 +38,16 @@
 		</style>
 	</head>
 	<body>
-		
-<!-- /resources/views/tasks/partials/_form.blade.php -->
-<div class="form-group">
-    {!! Form::label('nom', 'Nom:') !!}
-    {!! Form::text('nom') !!}
-</div>
-
-<div class="form-group">
-    {!! Form::label('dni', 'Dni:') !!}
-    {!! Form::text('dni') !!}
-</div>
+		@extends('app')
  
- <div class="form-group">
-    {!! Form::label('description', 'Description:') !!}
-    {!! Form::textarea('description') !!}
-</div> 
-
- <div class="form-group">
-    {!! Form::label('datanaixament', 'Data de naixament:') !!}
-    {!! Form::text('datanaixament') !!}
-</div> 
+@section('content')
+    <h2>Create Contacto for Cita "{{ $cita->slug }}"</h2>
  
-<div class="form-group">
-    {!! Form::submit($submit_text) !!}
-</div>
+    {!! Form::model(new App\Contacto, ['route' => ['citas.contactos.store', $cita->slug], 'class'=>'']) !!}
+        @include('contactos/partials/_form', ['submit_text' => 'Create Contacto'])
+    {!! Form::close() !!}
+@endsection
 	</body>
 </html>
+
+

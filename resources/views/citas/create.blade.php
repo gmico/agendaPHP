@@ -41,13 +41,12 @@
 		@extends('app')
  
 @section('content')
-    <h2>Create Votant for Poblacion "{{ $poblacion->slug }}"</h2>
+    <h2>Create Cita</h2>
  
-    {!! Form::model(new App\Votant, ['route' => ['poblacions.votants.store', $poblacion->slug], 'class'=>'']) !!}
-        @include('votants/partials/_form', ['submit_text' => 'Create Votant'])
+    {!! Form::model(new App\Poblacion, ['route' => ['citas.store']]) !!}
+        @include('citas/partials/_form', ['submit_text' => 'Create cita'])
     {!! Form::close() !!}
 @endsection
+ 
 	</body>
 </html>
-
-

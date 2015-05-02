@@ -17,16 +17,16 @@ Route::get('home', 'WelcomeController@index');
 
 
 // Provide controller methods with object instead of ID
-Route::model('votants', 'Votant');
-Route::model('poblacions', 'Poblacion');
+Route::model('contactos', 'Contacto');
+Route::model('citas', 'Cita');
  
 // Use slugs rather than IDs in URLs
-Route::bind('votants', function($value, $route) {
-	return App\Votant::whereSlug($value)->first();
+Route::bind('contactos', function($value, $route) {
+	return App\Contacto::whereSlug($value)->first();
 });
-Route::bind('poblacions', function($value, $route) {
-	return App\Poblacion::whereSlug($value)->first();
+Route::bind('citas', function($value, $route) {
+	return App\Cita::whereSlug($value)->first();
 });
  
-Route::resource('poblacions', 'PoblacionsController');
-Route::resource('poblacions.votants', 'VotantsController');
+Route::resource('citas', 'CitasController');
+Route::resource('citas.contactos', 'ContactosController');

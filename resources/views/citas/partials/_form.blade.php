@@ -38,6 +38,7 @@
 		</style>
 	</head>
 	<body>
+		
 		<div class="form-group">
     {!! Form::label('nom', 'Nom:') !!}
     {!! Form::text('nom') !!}

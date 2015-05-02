@@ -38,15 +38,16 @@
 		</style>
 	</head>
 	<body>
-		@extends('app')
+		
+		<div class="form-group">
+    {!! Form::label('contactos', 'Contactos:') !!}
+    {!! Form::select('contactos', $contactos, null, ['class' => 'form-control', 'multiple']) !!}
+</div>
+
+<div class="form-group">
+    {!! Form::submit($submit_text, ['class'=>'btn primary']) !!}
+</div>
  
-@section('content')
-    <h2>Create Poblacio</h2>
- 
-    {!! Form::model(new App\Poblacion, ['route' => ['poblacions.store']]) !!}
-        @include('poblacions/partials/_form', ['submit_text' => 'Create Poblacion'])
-    {!! Form::close() !!}
-@endsection
  
 	</body>
 </html>

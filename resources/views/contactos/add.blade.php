@@ -41,11 +41,13 @@
 		@extends('app')
  
 @section('content')
-    <h2>Edit Votant "{{ $votant->name }}"</h2>
+    <h2>Create Contacto for Cita "{{ $cita->titol }}"</h2>
  
-    {!! Form::model($votant, ['method' => 'PATCH', 'route' => ['poblacions.votants.update', $poblacion->slug, $votant->slug]]) !!}
-        @include('votants/partials/_form', ['submit_text' => 'Edit Task'])
+    {!! Form::model(new App\Contacto, ['route' => ['citas.contactos.add', $cita->id], 'class'=>'']) !!}
+        @include('contactos/partials/_form2', ['submit_text' => 'Create Contacto'])
     {!! Form::close() !!}
 @endsection
 	</body>
 </html>
+
+
