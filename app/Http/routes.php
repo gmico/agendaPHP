@@ -29,4 +29,4 @@ Route::bind('citas', function($value, $route) {
 });
  
 Route::resource('citas', 'CitasController');
-Route::resource('citas.contactos', 'ContactosController');
+Route::resource('contactos', 'ContactosController');

@@ -4,6 +4,7 @@
 use Input;
 use Redirect;
 use App\Cita;
+use App\Contacto;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -16,6 +17,7 @@ protected $rules = [
 
 		'slug' => ['min:3'],
 		'titol' => ['required','min:3'],
+
 		
 	];
 
@@ -24,7 +26,7 @@ protected $rules = [
 	 *
 	 * @return Response
 	 */
-	public function index()
+	public function index(Cita $cita)
 	{
 		$citas = Cita::all();
 		return view('citas.index', compact('citas'));
@@ -35,9 +37,15 @@ protected $rules = [
 	 *
 	 * @return Response
 	 */
-	public function create()
+	public function create(Cita $cita)
 	{
-		return view('citas.create');
+		$citas = Cita::lists('titol','titol');
+		$contactos = Contacto::lists('nom','nom');
+		return view('citas.create', compact('cita'));
+
+
+		//return view('contactos.create', compact('contactos'));
+
 	}
 
 	/**
@@ -47,10 +55,12 @@ protected $rules = [
 	 */
 	public function store(Request $request)
 	{
+		
 		$this->validate($request, $this->rules);
  
 		$input = Input::all();
 		$input['slug']=strtolower($input['titol']);
+		
 		Cita::create( $input );
  
 		return Redirect::route('citas.index')->with('message', 'cita creada');
@@ -61,12 +71,12 @@ protected $rules = [
 	 *
 	 * @return Response
 	 */
-	public function add(Cita $cita, Request $request)
+	public function add()
 	{
+		$contactos = Contacto::lists('nom','nom');
 		
-		$citas = Cita::lists('titulo');
+		return view('citas.add', compact('contactos'));
 
-		return Redirect::route('citas.show', $cita->slug)->with('Contacto added.');
 	}
 
 

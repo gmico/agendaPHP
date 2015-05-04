@@ -41,9 +41,9 @@
 		@extends('app')
  
 @section('content')
-    <h2>Create Contacto for Cita "{{ $cita->slug }}"</h2>
+    <h2>Create Contacto </h2>
  
-    {!! Form::model(new App\Contacto, ['route' => ['citas.contactos.store', $cita->slug], 'class'=>'']) !!}
+    {!! Form::model(new App\Contacto, ['route' => ['contactos.store']]) !!}
         @include('contactos/partials/_form', ['submit_text' => 'Create Contacto'])
     {!! Form::close() !!}
 @endsection

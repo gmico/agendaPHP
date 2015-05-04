@@ -52,7 +52,7 @@
  
  <div class="form-group">
     {!! Form::label('telefon', 'Telefon:') !!}
-    {!! Form::textarea('telefon') !!}
+    {!! Form::text('telefon') !!}
 </div> 
 
  <div class="form-group">

@@ -13,11 +13,10 @@
         <ul>
             @foreach( $cita->contactos as $contacto )
                 <li>
-                    {!! Form::open(array('class' => 'form-inline', 'method' => 'DELETE', 'route' => array('citas.contactos.destroy', $cita->slug, $contacto->slug))) !!}
-                        <h4><a href="{{ route('citas.contactos.show', [$cita->slug, $contacto->slug]) }}">{{ $contacto->nom }}</a></h4>
+                    {!! Form::open(array('class' => 'form-inline', 'method' => 'DELETE', 'route' => array('citas.destroy', $cita->slug, $contacto->slug))) !!}
+                        <h4><a href="{{ route('contactos.show', [$contacto->slug]) }}">{{ $contacto->nom }}</a></h4>
                         
-                            <!--{!! link_to_route('citas.contactos.edit', 'Editar Contacto', array($cita->slug, $contacto->slug), array('class' => 'btn btn-info')) !!}
- -->
+                            
                             {!! Form::submit('Eliminar Contacto', array('class' => 'btn btn-danger')) !!}
                         
 
@@ -27,10 +26,9 @@
         </ul>
     @endif
  
-    <p>
-        {!! link_to_route('citas.index', 'Torna to citas') !!} |
-        {!! link_to_route('citas.contactos.create', 'Añadir Contacto', $cita->id) !!}
-    </p>
+    <!--<p>
+        {!! link_to_route('contactos.create', 'Añadir Contacto', $cita->id) !!}
+    </p>-->
 @endsection 
 
 </body></html>

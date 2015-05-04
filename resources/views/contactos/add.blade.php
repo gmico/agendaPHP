@@ -43,7 +43,7 @@
 @section('content')
     <h2>Create Contacto for Cita "{{ $cita->titol }}"</h2>
  
-    {!! Form::model(new App\Contacto, ['route' => ['citas.contactos.add', $cita->id], 'class'=>'']) !!}
+    {!! Form::model(new App\Contacto, ['route' => ['contactos.add', $cita->id]) !!}
         @include('contactos/partials/_form2', ['submit_text' => 'Create Contacto'])
     {!! Form::close() !!}
 @endsection

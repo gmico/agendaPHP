@@ -40,13 +40,22 @@
 	<body>
 		
 		<div class="form-group">
-    {!! Form::label('nom', 'Nom:') !!}
-    {!! Form::text('nom') !!}
+    {!! Form::label('titol', 'Titol:') !!}
+    {!! Form::text('titol') !!}
 </div>
 <div class="form-group">
-    {!! Form::label('habitants', 'Habitants:') !!}
-    {!! Form::text('habitants') !!}
+    {!! Form::label('lloc', 'Lloc:') !!}
+    {!! Form::text('lloc') !!}
 </div>
+<div class="form-group">
+    {!! Form::label('descripcio', 'Descripcio:') !!}
+    {!! Form::text('descripcio') !!}
+</div>
+<div class="form-group">
+    {!! Form::label('datacita', 'Data de la cita:') !!}
+    {!! Form::input('date','datacita',date('d/m/Y'),['class'=>'form-control']) !!}
+</div>
+
 <div class="form-group">
     {!! Form::submit($submit_text, ['class'=>'btn primary']) !!}
 </div>

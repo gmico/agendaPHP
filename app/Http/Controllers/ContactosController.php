@@ -25,9 +25,10 @@ protected $rules = [
 	 *
 	 * @return Response
 	 */
-	public function index(Cita $cita)
+	public function index(Contacto $contacto)
 	{
-		return view('citas.index', compact('cita'));
+		$contactos = Contacto::all();
+		return view('contactos.index', compact('contactos'));
 	}
 
 	/**
@@ -35,9 +36,11 @@ protected $rules = [
 	 *
 	 * @return Response
 	 */
-	public function create(Cita $cita)
+	public function create(Contacto $contacto)
 	{
-		return view('contactos.create', compact('cita'));
+
+		$contactos = Contacto::lists('nom','nom');
+		return view('contactos.create', compact('contactos'));
 	}
 
 	/**
@@ -45,7 +48,7 @@ protected $rules = [
 	 *
 	 * @return Response
 	 */
-	public function store(Cita $cita, Request $request)
+	public function store(Request $request)
 	{
 		$this->validate($request, $this->rules);
  
@@ -54,7 +57,7 @@ protected $rules = [
 		$input['slug']=str_replace(" ","-",strtolower($input['nom']));
 		Contacto::create( $input );
  
-		return Redirect::route('citas.show', $cita->slug)->with('Contacto created.');
+		return Redirect::route('contactos.index')->with('message', 'Contacto creat');
 	}
 
 /**
@@ -62,12 +65,13 @@ protected $rules = [
 	 *
 	 * @return Response
 	 */
-	public function add(Cita $cita, Request $request)
+	public function add()
 	{
 		
-		$contactos = Contacto::lists('nom');
+$citas = Cita::lists('titol','titol');
 
-		return Redirect::route('citas.show', $cita->slug)->with('Contacto added.');
+
+return view('contactos.add', compact('citas'));
 	}
 
 
@@ -77,9 +81,9 @@ protected $rules = [
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show(Cita $cita, Contacto $contacto)
+	public function show(Contacto $contacto)
 	{
-		return view('contactos.show', compact('cita', 'contacto'));
+		return view('contactos.show', compact('contacto'));
 	}
 
 	/**
@@ -88,7 +92,7 @@ protected $rules = [
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function edit(Cita $cita, Contacto $contacto)
+	public function edit(Contacto $contacto, Cita $cita)
 	{
 		return view('contactos.edit', compact('cita', 'contacto'));
 	}
@@ -99,14 +103,14 @@ protected $rules = [
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update(Cita $cita, Contacto $contacto, Request $request)
+	public function update(Contacto $contacto, Cita $cita, Request $request)
 	{
 		$this->validate($request, $this->rules);
  
 		$input = array_except(Input::all(), '_method');
 		$contacto->update($input);
  
-		return Redirect::route('citas.contactos.show', [$cita->slug, $contacto->slug])->with('message', 'contacto updated.');
+		return Redirect::route('contactos.show', [$cita->slug, $contacto->slug])->with('message', 'contacto updated.');
 	}
 
 	/**
@@ -115,11 +119,11 @@ protected $rules = [
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy(Cita $cita, Contacto $contacto)
+	public function destroy(Contacto $contacto, Cita $cita)
 	{
 		$contacto->delete();
  
-	return Redirect::route('citas.show', $cita->slug)->with('message', 'contacto deleted.');
+	return Redirect::route('contactos.show', $contacto->slug)->with('message', 'contacto deleted.');
 	}
 
 }

@@ -11,10 +11,10 @@
             @foreach( $contactos as $contacto )
                 <li>
                     {!! Form::open(array('class' => 'form-inline', 'method' => 'DELETE', 'route' => array('contactos.destroy', $contacto->slug))) !!}
-                        <h4><a href="{{ route('citas.contactos.show', $contacto->slug) }}">{{ $contacto->nom }}</a></h4>
+                        <h4><a href="{{ route('contactos.show', $contacto->slug) }}">{{ $contacto->nom }}</a></h4>
                         
-                            {!! link_to_route('contactos.edit', 'Edit', array($contacto->slug), array('class' => 'btn btn-info')) !!}
-                            {!! Form::submit('Delete', array('class' => 'btn btn-danger')) !!}
+                            <!--{!! link_to_route('contactos.edit', 'Edit', array($contacto->slug), array('class' => 'btn btn-info')) !!}-->
+                            {!! Form::submit('Eliminar Contacto', array('class' => 'btn btn-danger')) !!}
                         
                     {!! Form::close() !!}
                 </li>
@@ -23,7 +23,7 @@
     @endif
  
     <p>
-        {!! link_to_route('contactos.create', 'Crear Poblacio') !!}
+        {!! link_to_route('contactos.create', 'Crear Contacto', $contacto->slug) !!}
     </p>
 @endsection
 </body></html>

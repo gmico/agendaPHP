@@ -41,12 +41,13 @@
 		@extends('app')
  
 @section('content')
-    <h2>Create Cita</h2>
+    <h2>Create Cita for Contacto "{{ $contacto->nom }}"</h2>
  
-    {!! Form::model(new App\Cita, ['route' => ['citas.store']]) !!}
-        @include('citas/partials/_form', ['submit_text' => 'Create cita'])
+    {!! Form::model(new App\Cita, ['route' => ['citas.add', $contacto->id]) !!}
+        @include('citas/partials/_form2', ['submit_text' => 'Create Cita'])
     {!! Form::close() !!}
 @endsection
- 
 	</body>
 </html>
+
+

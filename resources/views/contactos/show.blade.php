@@ -5,7 +5,7 @@
  
 @section('content')
     <h2>
-        {!! link_to_route('citas.show', $cita->titol, [$cita->slug]) !!} 
+       
          {{ $contacto->nom }}
     </h2>
 
@@ -13,10 +13,31 @@
     <p>E-Mail: {{ $contacto->mail }}</p>
    <p>Descripció: {{ $contacto->descripcio }}</p>
 <p>Telefon: {{ $contacto->telefon }}</p>
+
+<h4>citas:</h4>
+ 
+    @if ( !$contacto->citas->count() )
+        El contacte no te cites
+    @else
+        <ul>
+            @foreach( $contacto->citas as $cita )
+                <li>
+                    {!! Form::open(array('class' => 'form-inline', 'method' => 'DELETE', 'route' => array('contactos.destroy', $contacto->slug, $cita->slug))) !!}
+                        <h4><a href="{{ route('citas.show', [$cita->slug]) }}">{{ $cita->titol }}</a><span style="font-size:12px;">  ({{ $cita->datacita }})</span></h4>
+                        
+                            
+                            {!! Form::submit('Eliminar cita', array('class' => 'btn btn-danger')) !!}
+                        
+
+                    {!! Form::close() !!}
+                </li>
+            @endforeach
+        </ul>
+    @endif
+
     <p>
-         {!! link_to_route('citas.show', 'Torna a contactos', $cita->slug) !!} |
-        {!! link_to_route('citas.index', 'Torna a citas') !!} |
-        {!! link_to_route('citas.contactos.create', 'Crear Votant', $cita->slug) !!}
+        <!-- {!! link_to_route('citas.create', 'añadir a cita', $contacto->id) !!} -->
+
     </p>
 @endsection
 
